@@ -1,10 +1,11 @@
 import express from 'express';
+import userRoute from './src/routes/user.route.js'
 const app = express();
+const port = 3000;
 
-app.get('/', (req, res) => {
-  res.send('Olá mundo.')
-});
+app.use(express.json())
+app.use('/user', userRoute)
 
-app.listen(3000, () => {
-  console.log('Server is running on http://localhost:3000')
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`)
 });
